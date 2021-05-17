@@ -53,13 +53,15 @@ class UserController extends AdminController
 
             $grid->model()->orderBy('id', 'desc');
 
-            $grid->fixColumns(5, -2);
+            $grid->fixColumns(5, -1);
 
             $grid->disableCreateButton();
             $grid->disableViewButton();
             $grid->disableDeleteButton();
             $grid->disableEditButton();
-
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                $actions->prepend('<a href="user/address?user_id=1">地址</a>');
+            });
             $grid->actions([new ResetPassword()]);
             $grid->actions([new UpdateStatus()]);
         });
