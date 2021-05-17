@@ -24,7 +24,7 @@ class Article extends BaseModel
         0 => '教程', 1 => '轮播图', 2 => '公告'
     ];
 
-    public static $EnumStatus = [1 => '是', 0 => '否'];
+    public static $EnumStatus = [1 => '显示', 0 => '不显示'];
 
     public static function getSortList($list)
     {

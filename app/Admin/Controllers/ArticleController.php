@@ -92,9 +92,9 @@ class ArticleController extends AdminController
             $form->text('title');
             $form->select('pid')->options(ArticleModel::getPluckList());
             $form->select('type')->options(ArticleModel::$EnumType);
-            $form->image('image');
+            $form->image('image')->uniqueName()->saveFullUrl()->autoUpload();
             $form->text('url');
-            $form->text('content');
+            $form->editor('content');
             $form->number('sort');
             $form->select('status')->options(ArticleModel::$EnumStatus);
         });
