@@ -2,42 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Dcat\Admin\Traits\HasDateTimeFormatter;
 
-class User extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
 {
-    use HasFactory, Notifiable;
+	use HasDateTimeFormatter;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'account',
+        'phone',
+        'mail',
+        'openid',
+        'unionid',
+        'nickname',
+        'avatarurl',
+        'gender',
+        'identity',
+        'status',
+        'session_key',
+        'keyword',
+        'last_login_time',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public static $EnumStatus = [0 => '正常', 1 => '禁止登录', 2 => '待审核'];
+    public static $EnumGender = [0 => '男', 1 => '女', 2 => '未知'];
+    public static $EnumIdentity = [0 => '用户', 1 => '货代'];
 }
