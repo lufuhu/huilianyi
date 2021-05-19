@@ -21,4 +21,5 @@ Route::group([
     $router->resource('order/parcel', 'OrderParcelController');
     $router->resource('forwarders', 'ForwarderController');
     $router->resource('forwarder/task', 'ForwarderTaskController');
+    $router->resource('messages', 'MessageController');
 });

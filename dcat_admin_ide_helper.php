@@ -63,6 +63,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection price
      * @property Grid\Column|Collection monthly
      * @property Grid\Column|Collection level
+     * @property Grid\Column|Collection admin_id
      * @property Grid\Column|Collection order_id
      * @property Grid\Column|Collection pack_type
      * @property Grid\Column|Collection long
@@ -161,6 +162,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection price(string $label = null)
      * @method Grid\Column|Collection monthly(string $label = null)
      * @method Grid\Column|Collection level(string $label = null)
+     * @method Grid\Column|Collection admin_id(string $label = null)
      * @method Grid\Column|Collection order_id(string $label = null)
      * @method Grid\Column|Collection pack_type(string $label = null)
      * @method Grid\Column|Collection long(string $label = null)
@@ -264,6 +266,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection price
      * @property Show\Field|Collection monthly
      * @property Show\Field|Collection level
+     * @property Show\Field|Collection admin_id
      * @property Show\Field|Collection order_id
      * @property Show\Field|Collection pack_type
      * @property Show\Field|Collection long
@@ -362,6 +365,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection price(string $label = null)
      * @method Show\Field|Collection monthly(string $label = null)
      * @method Show\Field|Collection level(string $label = null)
+     * @method Show\Field|Collection admin_id(string $label = null)
      * @method Show\Field|Collection order_id(string $label = null)
      * @method Show\Field|Collection pack_type(string $label = null)
      * @method Show\Field|Collection long(string $label = null)
