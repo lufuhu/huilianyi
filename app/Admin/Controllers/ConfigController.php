@@ -2,13 +2,14 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Repositories\Message;
+use App\Admin\Repositories\Config;
+use App\Models\Config as ConfigModel;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
 
-class MessageController extends AdminController
+class ConfigController extends AdminController
 {
     /**
      * Make a grid builder.
@@ -17,17 +18,14 @@ class MessageController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new Message(), function (Grid $grid) {
+        return Grid::make(new Config(), function (Grid $grid) {
             $grid->simplePaginate();
             $grid->model()->orderBy('id', 'desc');
             $grid->column('id')->sortable();
-            $grid->column('user_id');
-            $grid->column('admin_id');
             $grid->column('title');
-            $grid->column('img')->image(null, 50, 50);
-            $grid->column('content');
-            $grid->column('type');
-            $grid->column('status');
+            $grid->column('key');
+            $grid->column('value');
+            $grid->column('type')->using(ConfigModel::getValue('configs_type'));
             $grid->column('created_at');
             $grid->column('updated_at')->sortable();
 
@@ -47,15 +45,12 @@ class MessageController extends AdminController
      */
     protected function detail($id)
     {
-        return Show::make($id, new Message(), function (Show $show) {
+        return Show::make($id, new Config(), function (Show $show) {
             $show->field('id');
-            $show->field('user_id');
-            $show->field('admin_id');
             $show->field('title');
-            $show->field('img')->image(null, 50, 50);;
-            $show->field('content');
-            $show->field('type');
-            $show->field('status');
+            $show->field('key');
+            $show->field('value');
+            $show->field('type')->using(ConfigModel::getValue('configs_type'));
             $show->field('created_at');
             $show->field('updated_at');
         });
@@ -68,14 +63,11 @@ class MessageController extends AdminController
      */
     protected function form()
     {
-        return Form::make(new Message(), function (Form $form) {
+        return Form::make(new Config(), function (Form $form) {
             $form->text('title');
-            $form->multipleImage('img')->sortable()->uniqueName()->saveFullUrl()->autoUpload();
-            $form->textarea('content');
-            $form->text('type');
-
-            $form->display('created_at');
-            $form->display('updated_at');
+            $form->text('key');
+            $form->textarea('value');
+            $form->select('type')->options(ConfigModel::getValue('configs_type'));
         });
     }
 }

@@ -44,6 +44,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection content
      * @property Grid\Column|Collection sort
      * @property Grid\Column|Collection status
+     * @property Grid\Column|Collection key
      * @property Grid\Column|Collection uuid
      * @property Grid\Column|Collection connection
      * @property Grid\Column|Collection queue
@@ -64,6 +65,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection monthly
      * @property Grid\Column|Collection level
      * @property Grid\Column|Collection admin_id
+     * @property Grid\Column|Collection img
      * @property Grid\Column|Collection order_id
      * @property Grid\Column|Collection pack_type
      * @property Grid\Column|Collection long
@@ -143,6 +145,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection content(string $label = null)
      * @method Grid\Column|Collection sort(string $label = null)
      * @method Grid\Column|Collection status(string $label = null)
+     * @method Grid\Column|Collection key(string $label = null)
      * @method Grid\Column|Collection uuid(string $label = null)
      * @method Grid\Column|Collection connection(string $label = null)
      * @method Grid\Column|Collection queue(string $label = null)
@@ -163,6 +166,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection monthly(string $label = null)
      * @method Grid\Column|Collection level(string $label = null)
      * @method Grid\Column|Collection admin_id(string $label = null)
+     * @method Grid\Column|Collection img(string $label = null)
      * @method Grid\Column|Collection order_id(string $label = null)
      * @method Grid\Column|Collection pack_type(string $label = null)
      * @method Grid\Column|Collection long(string $label = null)
@@ -247,6 +251,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection content
      * @property Show\Field|Collection sort
      * @property Show\Field|Collection status
+     * @property Show\Field|Collection key
      * @property Show\Field|Collection uuid
      * @property Show\Field|Collection connection
      * @property Show\Field|Collection queue
@@ -267,6 +272,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection monthly
      * @property Show\Field|Collection level
      * @property Show\Field|Collection admin_id
+     * @property Show\Field|Collection img
      * @property Show\Field|Collection order_id
      * @property Show\Field|Collection pack_type
      * @property Show\Field|Collection long
@@ -346,6 +352,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection content(string $label = null)
      * @method Show\Field|Collection sort(string $label = null)
      * @method Show\Field|Collection status(string $label = null)
+     * @method Show\Field|Collection key(string $label = null)
      * @method Show\Field|Collection uuid(string $label = null)
      * @method Show\Field|Collection connection(string $label = null)
      * @method Show\Field|Collection queue(string $label = null)
@@ -366,6 +373,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection monthly(string $label = null)
      * @method Show\Field|Collection level(string $label = null)
      * @method Show\Field|Collection admin_id(string $label = null)
+     * @method Show\Field|Collection img(string $label = null)
      * @method Show\Field|Collection order_id(string $label = null)
      * @method Show\Field|Collection pack_type(string $label = null)
      * @method Show\Field|Collection long(string $label = null)

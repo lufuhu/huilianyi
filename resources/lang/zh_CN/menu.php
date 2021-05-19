@@ -21,5 +21,6 @@ return [
         'forwarders'       => '货代',
         'forwarder_task'       => '线路',
         'messages'       => '站内消息',
+        'configs'       => '数据字典',
     ],
 ];

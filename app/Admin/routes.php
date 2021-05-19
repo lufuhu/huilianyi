@@ -22,4 +22,5 @@ Route::group([
     $router->resource('forwarders', 'ForwarderController');
     $router->resource('forwarder/task', 'ForwarderTaskController');
     $router->resource('messages', 'MessageController');
+    $router->resource('configs', 'ConfigController');
 });
