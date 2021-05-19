@@ -62,6 +62,9 @@ class UserController extends AdminController
             $grid->actions(function (Grid\Displayers\Actions $actions) {
                 $actions->prepend('<a href="user/address?user_id=1">地址</a>');
             });
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                $actions->prepend('<a href="orders?user_id=1">订单</a>');
+            });
             $grid->actions([new ResetPassword()]);
             $grid->actions([new UpdateStatus()]);
         });

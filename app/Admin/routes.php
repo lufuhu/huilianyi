@@ -17,4 +17,6 @@ Route::group([
     $router->resource('users', 'UserController');
     $router->resource('user/address', 'AddressController');
     $router->resource('article', 'ArticleController');
+    $router->resource('orders', 'OrderController');
+    $router->resource('order/parcel', 'OrderParcelController');
 });

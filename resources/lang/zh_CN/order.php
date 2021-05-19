@@ -1,0 +1,36 @@
+<?php
+return [
+    'labels' => [
+        'Order' => 'Order',
+        'order' => 'Order',
+    ],
+    'fields' => [
+        'user_id' => '用户',
+        'to' => '收货国家',
+        'from' => '发货国家',
+        'price' => '价格',
+        'info_type' => '货物类型',
+        'time' => '时效要求',
+        'express_company' => '快递公司',
+        'insurance' => '保险',
+        'customs' => '清关',
+        'revenue' => '包税',
+        'clause' => '运输条款',
+        'remark' => '备注',
+        'consignee_type' => '目标地类型',
+        'consignee_name' => '收件人姓名',
+        'consignee_tel' => '收件人联系方式',
+        'consignee_address' => '收件人地址',
+        'addresser_type' => '揽货方式',
+        'addresser_date' => '揽货时间',
+        'addresser_name' => '揽货联系人',
+        'addresser_tel' => '联系方式',
+        'addresser_address' => '揽货地址',
+        'order_parcel_id' => '包裹ID',
+        'forwarder_id' => '货代ID',
+        'forwarder_task_id' => '路线ID',
+        'status' => '状态',
+    ],
+    'options' => [
+    ],
+];

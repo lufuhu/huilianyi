@@ -16,5 +16,7 @@ return [
         'users'         => '用户',
         'address'       => '地址',
         'article'       => '文章',
+        'orders'       => '订单',
+        'order_parcel'       => '包裹',
     ],
 ];
