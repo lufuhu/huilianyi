@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<img src="/vendor/dcat-admin/images/logo.png" width="35"> &nbsp;Dcat Admin',
+    'logo' => '<img src="/images/logo.png" width="35"> &nbsp;慧连易',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<img src="/vendor/dcat-admin/images/logo.png">',
+    'logo-mini' => '<img src="/images/logo.png">',
 
     /*
      |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return [
      | Set a default avatar for newly created users.
      |
      */
-    'default_avatar' => '@admin/images/default-avatar.jpg',
+    'default_avatar' => '/images/logo.png',
 
     /*
     |--------------------------------------------------------------------------
