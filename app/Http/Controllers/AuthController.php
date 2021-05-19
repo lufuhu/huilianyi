@@ -57,7 +57,7 @@ class AuthController extends Controller
                 $unionid = isset($wxAuth['unionid']) ? $wxAuth['unionid'] : null;
                 $session_key = $wxAuth['session_key'];
                 $decryptedData = $app->encryptor->decryptData($session_key, $request->input('userInfo')['iv'], $request->input('userInfo')['encryptedData']);
-                Log::info($decryptedData);
+                Log::info(json_encode($decryptedData));
             } catch (\Exception $e) {
                 Log::error("wx-auth", $wxAuth);
                 abort(5003);
