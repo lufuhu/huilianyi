@@ -19,4 +19,6 @@ Route::group([
     $router->resource('article', 'ArticleController');
     $router->resource('orders', 'OrderController');
     $router->resource('order/parcel', 'OrderParcelController');
+    $router->resource('forwarders', 'ForwarderController');
+    $router->resource('forwarder/task', 'ForwarderTaskController');
 });

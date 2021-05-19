@@ -18,5 +18,7 @@ return [
         'article'       => '文章',
         'orders'       => '订单',
         'order_parcel'       => '包裹',
+        'forwarders'       => '货代',
+        'forwarder_task'       => '线路',
     ],
 ];
