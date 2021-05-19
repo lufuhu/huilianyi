@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Dcat\Admin\Traits\HasDateTimeFormatter;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
+class User extends Authenticatable
 {
-	use HasDateTimeFormatter;
+	use HasDateTimeFormatter, HasApiTokens, Notifiable;
 
     protected $fillable = [
         'account',
