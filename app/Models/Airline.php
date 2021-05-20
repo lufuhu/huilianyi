@@ -2,10 +2,28 @@
 
 namespace App\Models;
 
-use Dcat\Admin\Traits\HasDateTimeFormatter;
+use Illuminate\Support\Facades\Cache;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Airline extends Model
+class Airline extends BaseModel
 {
-	use HasDateTimeFormatter;    }
+    protected $table = 'airlines';
+
+    protected $fillable = [
+        "name",
+        "name_en",
+        "code",
+        "code_three",
+        "waybill",
+        "type",
+        "status",
+    ];
+
+    public static function getCacheAll(){
+        $key = "airlines";
+        if (!Cache::has($key)) {
+            $data = self::where('status', 1)->get()->toArray();
+            Cache::forever($key, $data);
+        }
+        return Cache::get($key);
+    }
+}

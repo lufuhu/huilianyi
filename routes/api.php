@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->name('api.v1.')->group(function () {
 
-    Route::get('test', 'AuthController@wxLogin')->name('auth.wxLogin');
+    Route::get('test', 'IndexController@test')->name('index.test');
 
     Route::middleware('throttle:' . config('api.rate_limits.sign'))->group(function () {
         Route::prefix('auth')->group(function () {
@@ -71,5 +71,16 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::post('address/{id}', 'AddressController@update')->name('address.update');
             Route::delete('address/{id}', 'AddressController@destroy')->name('address.destroy');
         });
+
+        Route::middleware('auth:sanctum')->prefix('dict')->namespace('Dict')->group(function () {
+            Route::get('configs', 'DictController@configs')->name('dict.configs');
+            Route::get('countrys', 'DictController@countrys')->name('dict.countrys');
+            Route::get('harbours', 'DictController@harbours')->name('dict.harbours');
+            Route::get('ships', 'DictController@ships')->name('dict.ships');
+            Route::get('airlines', 'DictController@airlines')->name('dict.airlines');
+            Route::get('airports', 'DictController@airports')->name('dict.airports');
+            Route::get('fba_storage', 'DictController@fba_storage')->name('dict.fba_storage');
+        });
+
     });
 });

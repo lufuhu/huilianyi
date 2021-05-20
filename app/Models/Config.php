@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use Dcat\Admin\Traits\HasDateTimeFormatter;
-
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
-class Config extends Model
+class Config extends BaseModel
 {
-	use HasDateTimeFormatter;
+    protected $table = "configs";
 
     public static $EnumType = [0 => 'txt', 1 => 'json'];
 

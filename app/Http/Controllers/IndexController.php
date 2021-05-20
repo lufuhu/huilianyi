@@ -3,13 +3,20 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class IndexController extends Controller
 {
+
+    public function test()
+    {
+        Country::getCacheAll();
+        dd(1);
+    }
+
     public function countries()
     {
 //        $countries = Countries::all();

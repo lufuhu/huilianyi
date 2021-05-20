@@ -2,13 +2,29 @@
 
 namespace App\Models;
 
-use Dcat\Admin\Traits\HasDateTimeFormatter;
+use Illuminate\Support\Facades\Cache;
 
-use Illuminate\Database\Eloquent\Model;
-
-class FbaStorage extends Model
+class FbaStorage extends BaseModel
 {
-	use HasDateTimeFormatter;
     protected $table = 'fba_storage';
-    
+
+    protected $fillable = [
+        "code",
+        "address",
+        "city",
+        "state",
+        "area",
+        "country",
+        "country_code",
+        "status",
+    ];
+
+    public static function getCacheAll(){
+        $key = "fba_storage";
+        if (!Cache::has($key)) {
+            $data = self::where('status', 1)->get()->toArray();
+            Cache::forever($key, $data);
+        }
+        return Cache::get($key);
+    }
 }
