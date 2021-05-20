@@ -11,7 +11,7 @@ class Config extends Model
 {
 	use HasDateTimeFormatter;
 
-
+    public static $EnumType = [0 => 'txt', 1 => 'json'];
 
 	public static function getValue ($key){
 	    if (!Cache::has('configs_' . $key)) {

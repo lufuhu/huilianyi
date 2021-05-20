@@ -25,7 +25,7 @@ class ConfigController extends AdminController
             $grid->column('title');
             $grid->column('key');
             $grid->column('value');
-            $grid->column('type')->using(ConfigModel::getValue('configs_type'));
+            $grid->column('type')->using(ConfigModel::$EnumType);
             $grid->column('created_at');
             $grid->column('updated_at')->sortable();
 
@@ -50,7 +50,7 @@ class ConfigController extends AdminController
             $show->field('title');
             $show->field('key');
             $show->field('value');
-            $show->field('type')->using(ConfigModel::getValue('configs_type'));
+            $show->field('type')->using(ConfigModel::$EnumType);
             $show->field('created_at');
             $show->field('updated_at');
         });
@@ -67,7 +67,7 @@ class ConfigController extends AdminController
             $form->text('title');
             $form->text('key');
             $form->textarea('value');
-            $form->select('type')->options(ConfigModel::getValue('configs_type'));
+            $form->select('type')->options(ConfigModel::$EnumType);
         });
     }
 }
