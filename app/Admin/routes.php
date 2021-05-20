@@ -24,4 +24,10 @@ Route::group([
     $router->resource('forwarder/task', 'ForwarderTaskController');
     $router->resource('messages', 'MessageController');
     $router->resource('configs', 'ConfigController');
+    $router->resource('countrys', 'CountryController');
+    $router->resource('harbours', 'HarbourController');
+    $router->resource('ships', 'ShipController');
+    $router->resource('airlines', 'AirlineController');
+    $router->resource('airports', 'AirportController');
+    $router->resource('fba_storage', 'FbaStorageController');
 });
