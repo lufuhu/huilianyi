@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Dcat\Admin\Traits\HasDateTimeFormatter;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Address extends Model
+class Address extends BaseModel
 {
-	use HasDateTimeFormatter;
     protected $table = 'address';
-    
+    protected $fillable = [
+        'user_id',
+        "name",
+        "phone",
+        "address"
+    ];
 }

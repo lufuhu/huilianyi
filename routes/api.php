@@ -72,7 +72,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::delete('address/{id}', 'AddressController@destroy')->name('address.destroy');
         });
 
-        Route::middleware('auth:sanctum')->prefix('dict')->namespace('Dict')->group(function () {
+        Route::middleware('auth:sanctum')->prefix('dict')->group(function () {
             Route::get('configs', 'DictController@configs')->name('dict.configs');
             Route::get('countrys', 'DictController@countrys')->name('dict.countrys');
             Route::get('harbours', 'DictController@harbours')->name('dict.harbours');
@@ -80,6 +80,10 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::get('airlines', 'DictController@airlines')->name('dict.airlines');
             Route::get('airports', 'DictController@airports')->name('dict.airports');
             Route::get('fba_storage', 'DictController@fba_storage')->name('dict.fba_storage');
+        });
+
+        Route::middleware('auth:sanctum')->prefix('message')->namespace('Message')->group(function () {
+            Route::get('message', 'MessageController@index')->name('message.index');
         });
 
     });

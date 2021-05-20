@@ -25,11 +25,15 @@ class Country extends BaseModel
     {
         $key = "countrys";
         if (!Cache::has($key)) {
-            $data = self::where('status', 1)->get();
-            $list = [];
-            foreach ($data as $item) {
-                $list[] = ['letter' => $item->letter, 'data' => $item];
+            $list = self::where('status', 1)->select('name','code','letter')->get();
+            $data = [];
+            $letter = [];
+            foreach ($list as $item) {
+                $data[$item->letter]['letter'] = $item->letter;
+                $data[$item->letter]['data'][] = $item;
+                $letter[] = $item->letter;
             }
+            $list = compact('letter', 'data');
             Cache::forever($key, $list);
         }
         return Cache::get($key);

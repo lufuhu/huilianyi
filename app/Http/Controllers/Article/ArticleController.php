@@ -13,11 +13,16 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $query = Article::where('status', 1);
-        if ($request->input('type')) {
-            $query = $query->where('type', $request->input('type'));
-        }
+        $query = $query->where('type', $request->input('type'));
         $list = $query->select('id','title','pid','image')->orderBy('sort', 'desc')->get();
-        $list = Article::getSortList($list->toArray());
+        if ($request->input('type') == 0){
+            $list = Article::getSortList($list->toArray());
+        }
         return $this->response($list);
+    }
+
+    public function view($id){
+        $obj = Article::where('status',1)->where('id', $id)->first();
+        return $this->response($obj);
     }
 }

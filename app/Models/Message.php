@@ -2,13 +2,20 @@
 
 namespace App\Models;
 
-use Dcat\Admin\Traits\HasDateTimeFormatter;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Message extends Model
+class Message extends BaseModel
 {
-	use HasDateTimeFormatter;
+    protected $table = "messages";
+
+    protected $fillable = [
+        'user_id',
+        'admin_id',
+        'title',
+        'img',
+        'content',
+        'type',
+        'status',
+    ];
 
     public function getImgAttribute($value)
     {

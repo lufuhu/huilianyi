@@ -2,11 +2,8 @@
 
 namespace App\Models;
 
-use Dcat\Admin\Traits\HasDateTimeFormatter;
-
 class Article extends BaseModel
 {
-	use HasDateTimeFormatter;
 
     protected $table = 'articles';
 
