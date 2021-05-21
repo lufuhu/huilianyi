@@ -46,7 +46,6 @@ class OrderController extends Controller
             $obj->fill($all);
             $obj->user_id =$user_id;
             $obj->save();
-            $parcels = [];
             foreach ($request->input('parcel') as $item){
                 $orderParcel = new OrderParcel();
                 $item['user_id'] = $user_id;

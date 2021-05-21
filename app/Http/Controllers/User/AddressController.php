@@ -12,8 +12,12 @@ class AddressController extends Controller
 {
     public function index(Request $request)
     {
-        $list = Address::where('user_id', $request->user()->id)->orderBy('id', 'desc')->paginate();
-        return $this->response($list);
+        $query = Address::where('user_id', $request->user()->id)->orderBy('id', 'desc');
+        if ($request->input('keyword')){
+            $query = $query->whereRaw("concat('name','phone','address') like '%".$request->input('keyword')."%'");
+        }
+        $data = $query->paginate();
+        return $this->response($data);
     }
 
     public function view($id){

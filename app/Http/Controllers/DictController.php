@@ -30,33 +30,53 @@ class DictController extends Controller
         return $this->response($data);
     }
 
-    public function harbours()
+    public function harbours(Request $request)
     {
-        $data = Harbour::getCacheAll();
+        $query = Harbour::where('status', 1);
+        if ($request->input('keyword')){
+            $query = $query->whereRaw("concat('name','code','name_en','country','country_code','line') like '%".$request->input('keyword')."%'");
+        }
+        $data = $query->paginate();
         return $this->response($data);
     }
 
-    public function ships()
+    public function ships(Request $request)
     {
-        $data = Ship::getCacheAll();
+        $query = Ship::where('status', 1);
+        if ($request->input('keyword')){
+            $query = $query->whereRaw("concat('name','name_abbr','name_en','name_en_abbr') like '%".$request->input('keyword')."%'");
+        }
+        $data = $query->paginate();
         return $this->response($data);
     }
 
-    public function airlines()
+    public function airlines(Request $request)
     {
-        $data = Airline::getCacheAll();
+        $query = Airline::where('status', 1);
+        if ($request->input('keyword')){
+            $query = $query->whereRaw("concat('name','name_en','code','code_three','waybill','type') like '%".$request->input('keyword')."%'");
+        }
+        $data = $query->paginate();
         return $this->response($data);
     }
 
-    public function airports()
+    public function airports(Request $request)
     {
-        $data = Airport::getCacheAll();
+        $query = Airport::where('status', 1);
+        if ($request->input('keyword')){
+            $query = $query->whereRaw("concat('name','code','name_en','country','country_code','code_four','city') like '%".$request->input('keyword')."%'");
+        }
+        $data = $query->paginate();
         return $this->response($data);
     }
 
-    public function fba_storage()
+    public function fba_storage(Request $request)
     {
-        $data = FbaStorage::getCacheAll();
+        $query = FbaStorage::where('status', 1);
+        if ($request->input('keyword')){
+            $query = $query->whereRaw("concat('code','address','city','state','area','country','country_code') like '%".$request->input('keyword')."%'");
+        }
+        $data = $query->paginate();
         return $this->response($data);
     }
 }

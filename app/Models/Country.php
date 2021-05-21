@@ -33,6 +33,7 @@ class Country extends BaseModel
                 $data[$item->letter]['data'][] = $item;
                 $letter[] = $item->letter;
             }
+            $letter = array_unique($letter);
             $list = compact('letter', 'data');
             Cache::forever($key, $list);
         }
