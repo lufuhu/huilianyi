@@ -62,6 +62,11 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::get('order', 'OrderController@index')->name('order.index');
             Route::get('order/{id}', 'OrderController@view')->name('order.view');
             Route::post('order', 'OrderController@store')->name('order.store');
+
+            Route::get('preset', 'OrderPresetController@index')->name('preset.index');
+            Route::post('preset', 'OrderPresetController@store')->name('preset.store');
+            Route::post('preset/{id}', 'OrderPresetController@update')->name('preset.update');
+            Route::delete('preset/{id}', 'OrderPresetController@destroy')->name('preset.destroy');
         });
 
         Route::middleware('auth:sanctum')->prefix('user')->namespace('User')->group(function () {
