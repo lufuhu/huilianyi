@@ -97,12 +97,12 @@ class DictController extends Controller
         } else if($request->input('transportation') == 1){
             $list = Airline::getCacheAll();
             foreach ($list as $item){
-                $data = ['value'=> $item->name , 'label' => $item->name];
+                $data = ['value'=> $item['name'] , 'label' => $item['name']];
             }
         } else if($request->input('transportation') == 2){
             $list = Ship::getCacheAll();
             foreach ($list as $item){
-                $data = ['value'=> $item->name , 'label' => $item->name];
+                $data = ['value'=> $item['name'] , 'label' => $item['name']];
             }
         } else if($request->input('transportation') == 3){
            $data = [
