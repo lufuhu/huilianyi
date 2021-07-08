@@ -24,7 +24,8 @@ class Country extends BaseModel
     public static function getCacheAll()
     {
         $key = "countrys";
-        if (!Cache::has($key)) {
+//        if (!Cache::has($key)) {
+        if (true) {
             $list = self::where('status', 1)->select('name','code','letter')->get();
             $data = [];
             $letter = [];
@@ -33,7 +34,7 @@ class Country extends BaseModel
                 $data[$item->letter]['data'][] = $item;
                 $letter[] = $item->letter;
             }
-            $letter = array_unique($letter);
+            $letter = array_values(array_unique($letter));
             $list = compact('letter', 'data');
             Cache::forever($key, $list);
         }
