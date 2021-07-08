@@ -79,4 +79,41 @@ class DictController extends Controller
         $data = $query->paginate();
         return $this->response($data);
     }
+
+    public function express(Request $request){
+        $data = [];
+        if ($request->input('transportation') == 0){
+            $data = [
+                ['value'=> 'DHL-敦豪快递' , 'label' => 'DHL-敦豪快递'],
+                ['value'=> 'EMS-中国邮政' , 'label' => 'EMS-中国邮政'],
+                ['value'=> 'Fedex-联邦快递' , 'label' => 'Fedex-联邦快递'],
+                ['value'=> 'UPS-联合包裹' , 'label' => 'UPS-联合包裹'],
+                ['value'=> 'CAE-民航快递' , 'label' => 'CAE-民航快递'],
+                ['value'=> 'CRE-中铁快运' , 'label' => 'CRE-中铁快运'],
+                ['value'=> 'DPD-德普达快运' , 'label' => 'DPD-德普达快运'],
+                ['value'=> 'SF Express-顺丰国际' , 'label' => 'SF Express-顺丰国际'],
+                ['value'=> 'TNT-天地快运' , 'label' => 'TNT-天地快运'],
+            ];
+        } else if($request->input('transportation') == 1){
+            $list = Airline::getCacheAll();
+            foreach ($list as $item){
+                $data = ['value'=> $item->name , 'label' => $item->name];
+            }
+        } else if($request->input('transportation') == 2){
+            $list = Ship::getCacheAll();
+            foreach ($list as $item){
+                $data = ['value'=> $item->name , 'label' => $item->name];
+            }
+        } else if($request->input('transportation') == 3){
+           $data = [
+               ['value'=> '中欧铁路-散柜' , 'label' => '中欧铁路-散柜'],
+               ['value'=> '中欧铁路-整柜' , 'label' => '中欧铁路-整柜'],
+               ['value'=> '中欧卡车-整车' , 'label' => '中欧卡车-整车'],
+               ['value'=> '中欧卡车-零担' , 'label' => '中欧卡车-零担'],
+               ['value'=> '东南亚铁路-整车' , 'label' => '东南亚铁路-整车'],
+               ['value'=> '东南亚铁路-零担' , 'label' => '东南亚铁路-零担'],
+           ];
+        }
+        return $this->response($data);
+    }
 }

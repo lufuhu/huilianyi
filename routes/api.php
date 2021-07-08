@@ -80,6 +80,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::get('airlines', 'DictController@airlines')->name('dict.airlines');
             Route::get('airports', 'DictController@airports')->name('dict.airports');
             Route::get('fba_storage', 'DictController@fba_storage')->name('dict.fba_storage');
+            Route::get('express', 'DictController@express')->name('dict.express');
         });
 
         Route::middleware('auth:sanctum')->prefix('message')->namespace('Message')->group(function () {
