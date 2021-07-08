@@ -24,9 +24,8 @@ class Country extends BaseModel
     public static function getCacheAll()
     {
         $key = "countrys";
-//        if (!Cache::has($key)) {
-        if (true) {
-            $list = self::where('status', 1)->select('name','code','letter')->get();
+        if (!Cache::has($key)) {
+            $list = self::where('status', 1)->select('name', 'name_en', 'code','letter')->get();
             $data = [];
             $letter = [];
             foreach ($list as $item) {
