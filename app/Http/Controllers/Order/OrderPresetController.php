@@ -12,7 +12,7 @@ class OrderPresetController extends Controller
 {
     public function index(Request $request)
     {
-        $list = OrderPreset::get();
+        $list = OrderPreset::paginate($request->input('page_size', 15));
         return $this->response($list);
     }
 
