@@ -31,7 +31,7 @@ class SubjectController extends Controller
         $obj->fill($all);
         $obj->user_id = $request->user()->id;
         $obj->save();
-        return $this->response();
+        return $this->response($obj->id);
     }
 
     public function update($id, Request $request)
@@ -40,7 +40,7 @@ class SubjectController extends Controller
         $data = $request->all();
         $data['status'] = 1;
         $obj->update($data);
-        return $this->response();
+        return $this->response($obj->id);
     }
 
     public function destroy($id)
