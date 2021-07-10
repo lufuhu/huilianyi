@@ -13,6 +13,7 @@ class Address extends BaseModel
         "phone",
         "city",
         "address",
-        "company"
+        "company",
+        'default'
     ];
 }
