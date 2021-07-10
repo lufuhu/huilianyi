@@ -125,7 +125,7 @@ class DictController extends Controller
     }
 
     public function worldCity(Request $request){
-        $data = WorldCity::getCityList($request->input('pid'));
+        $data = WorldCity::where('pid', $request->input('pid'))->get();
         return $this->response($data);
     }
     public function abroadCountry(){
