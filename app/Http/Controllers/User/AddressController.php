@@ -16,6 +16,9 @@ class AddressController extends Controller
         if ($request->input('keyword')){
             $query = $query->whereRaw("concat('name','phone','address') like '%".$request->input('keyword')."%'");
         }
+        if ($request->input('type')){
+            $query = $query->where('type', $request->input('type'));
+        }
         $data = $query->paginate();
         return $this->response($data);
     }
