@@ -30,6 +30,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
         });
         Route::prefix('index')->group(function () {
             Route::get('countries', 'IndexController@countries')->name('index.countries');
+            Route::post('upload', 'IndexController@upload')->name('index.update');
         });
 
         Route::middleware('auth:sanctum')->prefix('auth')->group(function () {
@@ -75,6 +76,15 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::post('address', 'AddressController@store')->name('address.store');
             Route::post('address/{id}', 'AddressController@update')->name('address.update');
             Route::delete('address/{id}', 'AddressController@destroy')->name('address.destroy');
+        });
+
+        Route::middleware('auth:sanctum')->prefix('subject')->namespace('Subject')->group(function () {
+            Route::get('subject', 'SubjectController@index')->name('subject.index');
+            Route::get('subject/{id}', 'SubjectController@view')->name('subject.view');
+            Route::post('subject', 'SubjectController@store')->name('subject.store');
+            Route::post('subject/{id}', 'SubjectController@update')->name('subject.update');
+            Route::delete('subject/{id}', 'SubjectController@destroy')->name('subject.destroy');
+            Route::post('face', 'SubjectController@destroy')->name('subject.destroy');
         });
 
         Route::middleware('auth:sanctum')->prefix('dict')->group(function () {

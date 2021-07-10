@@ -135,7 +135,7 @@ class IndexController extends Controller
     public function upload(Request $request)
     {
         $url = Storage::putFile('public/upload/' . date("Ymd"), $request->file('file'));
-        return $this->response(str_replace('public/', '', $url));
+        return $this->response(env('APP_URL').'/storage/'.str_replace('public/', '', $url));
     }
 
     public function phoneCode(Request $request)
