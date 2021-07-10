@@ -19,6 +19,6 @@ class BaseModel extends Model
      */
     public static function getPluckList($key = 'id', $value = 'title')
     {
-        return self::pluck($value, $value)->toArray();
+        return self::pluck($value, $key)->toArray();
     }
 }

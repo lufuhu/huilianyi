@@ -86,6 +86,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::get('airports', 'DictController@airports')->name('dict.airports');
             Route::get('fba_storage', 'DictController@fba_storage')->name('dict.fba_storage');
             Route::get('express', 'DictController@express')->name('dict.express');
+            Route::get('world_city', 'DictController@worldCity')->name('dict.worldCity');
         });
 
         Route::middleware('auth:sanctum')->prefix('message')->namespace('Message')->group(function () {

@@ -10,6 +10,7 @@ use App\Models\Country;
 use App\Models\FbaStorage;
 use App\Models\Harbour;
 use App\Models\Ship;
+use App\Models\WorldCity;
 use Illuminate\Http\Request;
 
 class DictController extends Controller
@@ -120,6 +121,11 @@ class DictController extends Controller
                ['value'=> '东南亚铁路-零担' , 'label' => '东南亚铁路-零担'],
            ];
         }
+        return $this->response($data);
+    }
+
+    public function worldCity(Request $request){
+        $data = WorldCity::where('pid', $request->input('pid'))->get();
         return $this->response($data);
     }
 }
