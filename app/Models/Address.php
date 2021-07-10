@@ -14,6 +14,6 @@ class Address extends BaseModel
         "city",
         "address",
         "company",
-        'default'
+        'is_default'
     ];
 }
