@@ -30,11 +30,11 @@ class WorldCity extends BaseModel
         foreach ($data as $k => $v) {
             $list[$k] = ["value" => $v->id, "label" => $v->name_zh];
             $children = self::where('pid', $v->id)->get();
-            if ($children) {
+            if ($children->count() > 0) {
                 foreach ($children as $k1 => $v1) {
                     $list[$k]['children'][$k1] = ["value" => $v1->id, "label" => $v1->name_zh];
                     $children2 = self::where('pid', $v1->id)->get();
-                    if ($children2) {
+                    if ($children2->count() > 0) {
                         foreach ($children2 as $k2 => $v2) {
                             $list[$k]['children'][$k1]['children'][$k2] = ["value" => $v2->id, "label" => $v2->name_zh];
                         }

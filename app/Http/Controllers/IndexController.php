@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class IndexController extends Controller
 {
     public function test(){
-        $data = WorldCity::getAbroadCountry();
+        $data = WorldCity::getCityList(1);
         dd($data);
     }
     public function test2()
