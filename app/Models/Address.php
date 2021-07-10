@@ -10,10 +10,17 @@ class Address extends BaseModel
         'type',
         'remark',
         "name",
+        "name_cn",
         "phone",
+        "country",
+        "country_cn",
+        "country_code",
         "city",
+        "city_cn",
         "address",
+        "address_cn",
         "company",
+        "company_cn",
         'is_default'
     ];
 }
