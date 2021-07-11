@@ -84,7 +84,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::post('subject', 'SubjectController@store')->name('subject.store');
             Route::post('subject/{id}', 'SubjectController@update')->name('subject.update');
             Route::delete('subject/{id}', 'SubjectController@destroy')->name('subject.destroy');
-            Route::post('face', 'SubjectController@face')->name('subject.face');
+            Route::post('face/{id}', 'SubjectController@face')->name('subject.face');
 
             Route::get('subject_user', 'SubjectUserController@index')->name('subject_user.index');
             Route::get('subject_users', 'SubjectUserController@user')->name('subject_user.user');

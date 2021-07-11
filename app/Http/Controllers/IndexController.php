@@ -6,14 +6,49 @@ namespace App\Http\Controllers;
 use App\Models\WorldCity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-
+use AlibabaCloud\Client\AlibabaCloud;
+use AlibabaCloud\Client\Exception\ClientException;
+use AlibabaCloud\Client\Exception\ServerException;
+use OSS\OssClient;
+use OSS\Core\OssException;
 class IndexController extends Controller
 {
-    public function test(){
-        $data = WorldCity::getCityList(1);
-        dd($data);
+    public function test111(){
+        AlibabaCloud::accessKeyClient(env('ALIYUN_ACCESS_KEY_ID'), env('ALIYUN_ACCESS_SECRET'))
+            ->regionId('cn-shanghai')
+            ->asDefaultClient();
+        $parmas = [
+            "certificateName" => '张无',
+            "certificateNumber" => '120223200607014572',
+            "facialPictureUrl" => 'https://test8515.oss-cn-shanghai.aliyuncs.com/1.jpg',
+        ];
+        try {
+            $result = AlibabaCloud::roa()
+                ->product('facebody')
+                ->version('2020-09-10')
+                ->pathPattern('/viapi/thirdparty/realperson/execServerSideVerification')
+                ->method('POST')
+                ->options(['query' => $parmas])
+                ->request();
+            dd($result->toArray());
+        } catch (ClientException $e) {
+            dd($e);
+            echo $e->getErrorMessage() . PHP_EOL;
+        } catch (ServerException $e) {
+            dd($e);
+            echo $e->getErrorMessage() . PHP_EOL;
+        }
     }
+    function base64EncodeImage ($image_file)
+    {
+        $image_info = getimagesize($image_file);
+        $image_data = fread(fopen($image_file, 'r'), filesize($image_file));
+        $base64_image = 'data:' . $image_info['mime'] . ';base64,' . chunk_split(base64_encode($image_data));
+        return $base64_image;
+    }
+
     public function test2()
     {
 
