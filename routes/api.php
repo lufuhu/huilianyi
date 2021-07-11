@@ -86,11 +86,11 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
             Route::delete('subject/{id}', 'SubjectController@destroy')->name('subject.destroy');
             Route::post('face', 'SubjectController@face')->name('subject.face');
 
-            Route::get('subject_user', 'SubjectController@index')->name('subject_user.index');
-            Route::get('subject_users', 'SubjectController@user')->name('subject_user.user');
-            Route::post('subject_user', 'SubjectController@store')->name('subject_user.store');
-            Route::post('subject_user/{id}', 'SubjectController@update')->name('subject_user.update');
-            Route::delete('subject_user/{id}', 'SubjectController@destroy')->name('subject_user.destroy');
+            Route::get('subject_user', 'SubjectUserController@index')->name('subject_user.index');
+            Route::get('subject_users', 'SubjectUserController@user')->name('subject_user.user');
+            Route::post('subject_user', 'SubjectUserController@store')->name('subject_user.store');
+            Route::post('subject_user/{id}', 'SubjectUserController@update')->name('subject_user.update');
+            Route::delete('subject_user/{id}', 'SubjectUserController@destroy')->name('subject_user.destroy');
         });
 
         Route::middleware('auth:sanctum')->prefix('dict')->group(function () {
