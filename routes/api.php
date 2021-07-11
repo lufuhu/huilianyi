@@ -80,6 +80,7 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
 
         Route::middleware('auth:sanctum')->prefix('subject')->namespace('Subject')->group(function () {
             Route::get('subject', 'SubjectController@index')->name('subject.index');
+            Route::get('user', 'SubjectController@user')->name('subject.user');
             Route::get('subject/{id}', 'SubjectController@view')->name('subject.view');
             Route::post('subject', 'SubjectController@store')->name('subject.store');
             Route::post('subject/{id}', 'SubjectController@update')->name('subject.update');
