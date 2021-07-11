@@ -49,4 +49,8 @@ class SubjectController extends Controller
         $obj->delete();
         return $this->response();
     }
+
+    public function face(){
+        return $this->response();
+    }
 }

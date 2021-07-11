@@ -80,12 +80,17 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
 
         Route::middleware('auth:sanctum')->prefix('subject')->namespace('Subject')->group(function () {
             Route::get('subject', 'SubjectController@index')->name('subject.index');
-            Route::get('user', 'SubjectController@user')->name('subject.user');
             Route::get('subject/{id}', 'SubjectController@view')->name('subject.view');
             Route::post('subject', 'SubjectController@store')->name('subject.store');
             Route::post('subject/{id}', 'SubjectController@update')->name('subject.update');
             Route::delete('subject/{id}', 'SubjectController@destroy')->name('subject.destroy');
-            Route::post('face', 'SubjectController@destroy')->name('subject.destroy');
+            Route::post('face', 'SubjectController@face')->name('subject.face');
+
+            Route::get('subject_user', 'SubjectController@index')->name('subject_user.index');
+            Route::get('subject_users', 'SubjectController@user')->name('subject_user.user');
+            Route::post('subject_user', 'SubjectController@store')->name('subject_user.store');
+            Route::post('subject_user/{id}', 'SubjectController@update')->name('subject_user.update');
+            Route::delete('subject_user/{id}', 'SubjectController@destroy')->name('subject_user.destroy');
         });
 
         Route::middleware('auth:sanctum')->prefix('dict')->group(function () {
